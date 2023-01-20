@@ -31,10 +31,32 @@ def mean(*args):
 
 PART = 2
 
+# if __name__ == "__main__":
+#   if PART == 1:
+#     # willAdd6 = curriedAdd(6)
+#     # print(willAdd6(10))
+
+#     print(curriedAdd(1)(3))
+#   elif PART == 2:
+#     curriedMean = curry(mean)
+#     print(curriedMean(1, 2, 3, 4, 5)())
+#     print(curriedMean(1)(2)(3)(4)(5)())
+
+
+"""
+Write a curried multiply
+
+cMultiply(4)(5) = 20
+
+"""
+
+
+def cMultiply(arg1):
+  def multiplyByArg1(arg2):
+    return arg1 * arg2
+
+  return multiplyByArg1
+
+
 if __name__ == "__main__":
-  if PART == 1:
-    print(curriedAdd(1)(3))
-  elif PART == 2:
-    curriedMean = curry(mean)
-    print(curriedMean(1, 2, 3, 4)())
-    print(curriedMean(1)(2)(3)(4)())
+  print(cMultiply(4)(5))

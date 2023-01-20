@@ -15,15 +15,15 @@ class Dunder():
     return True
 
   def __setattr__(self, name, value):
-    print(f"{name} was set to {value}")
     self.__dict__[name] = value
+    print(f"{name} was set to {value}")
 
   def __getattribute__(self, name):
     print(f"{name} was gotten")
 
     return object.__getattribute__(self, name)
 
-  def __getattr(self, name):
+  def __getattr__(self, name):
     self.__dict__[name] = 0
     return 0
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     a = Dunder()
 
     a.thing = 10
-    a.thang = 20
-    print(a.thang)
+    a.notThere = 20
+    print(a.notThere)
 
     print()
